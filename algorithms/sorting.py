@@ -1,42 +1,43 @@
-import time
+from time import time
 
 
-def time_Test(sort):
+def time_test(sort):
     def wrapper(*args, **kwargs):
-        start_time = time.time()
+        start_time = time()
         result = sort(*args, **kwargs)
-        end_time = time.time()
+        end_time = time()
         print(f"lead time {sort.__name__}: {end_time - start_time} seconds")
         return result
+
     return wrapper
 
 
-#usage example
+# usage example
 
 #  @algorithms.sorting.time_Test
 #  def insertion_sorting_test(list):
-   #   return /../..insertion_Sort(list)
+#   return /../..insertion_Sort(list)
 
 
-def selection_Sort(list:list):
-    n = len(list)
-    for i in range(n-1):
+def selection_sort(lst: list):
+    n = len(lst)
+    for i in range(n - 1):
         m = i
-        for j in range(i+1, n):
-            if list[j] < list[m]:
+        for j in range(i + 1, n):
+            if lst[j] < lst[m]:
                 m = j
-        list[i], list[m] = list[m], list[i]
+        lst[i], lst[m] = lst[m], lst[i]
 
-    return list
+    return lst
 
 
-def insertion_Sort(list:list):
-    n = len(list)
+def insertion_sort(lst: list):
+    n = len(lst)
     for i in range(1, n):
         for j in range(i, 0, -1):
-            if list[j] < list[j - 1]:
-                list[j], list[j - 1] = list[j - 1], list[j]
+            if lst[j] < lst[j - 1]:
+                lst[j], lst[j - 1] = lst[j - 1], lst[j]
             else:
                 break
 
-    return list
+    return lst
