@@ -19,7 +19,7 @@ def time_test(sort):
 #   return /../..insertion_Sort(list)
 
 
-def selection_sort(lst: list) -> list:
+def selection_sort(lst: list):
     n = len(lst)
     for i in range(n - 1):
         m = i
@@ -31,7 +31,7 @@ def selection_sort(lst: list) -> list:
     return lst
 
 
-def insertion_sort(lst: list) -> list:
+def insertion_sort(lst: list):
     n = len(lst)
     for i in range(1, n):
         for j in range(i, 0, -1):
@@ -41,4 +41,3 @@ def insertion_sort(lst: list) -> list:
                 break
 
     return lst
-
