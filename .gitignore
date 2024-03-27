@@ -3,4 +3,4 @@ program_course.py
 .idea
 main.py
 .venv
-build
+/build/
