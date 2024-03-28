@@ -20,25 +20,29 @@ def time_test(sort):
 
 
 def selection_sort(lst: list) -> list:
-    n = len(lst)
-    for i in range(n - 1):
+
+    for i in range(len(lst) - 1):
         m = i
-        for j in range(i + 1, n):
+
+        for j in range(i + 1, len(lst)):
             if lst[j] < lst[m]:
                 m = j
+
         lst[i], lst[m] = lst[m], lst[i]
 
     return lst
 
 
 def insertion_sort(lst: list) -> list:
-    n = len(lst)
-    for i in range(1, n):
-        for j in range(i, 0, -1):
-            if lst[j] < lst[j - 1]:
-                lst[j], lst[j - 1] = lst[j - 1], lst[j]
-            else:
-                break
+
+    for i in range(1, len(lst)):
+        item_to_insert = lst[i]
+        j = i - 1
+
+        while j >= 0 and lst[j] > item_to_insert:
+            lst[j + 1] = lst[j]
+            j -= 1
+
+        lst[j + 1] = item_to_insert
 
     return lst
-
