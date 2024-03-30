@@ -1,6 +1,6 @@
 import time
 
-
+#decorator for check time complete
 def time_test(sort):
     def wrapper(*args, **kwargs):
         start_time = time.time()
@@ -18,7 +18,7 @@ def time_test(sort):
 #  def insertion_sorting_test(list):
 #   return /../..insertion_Sort(list)
 
-
+#variant of selection sort
 def selection_sort(lst: list) -> list:
 
     for i in range(len(lst) - 1):
@@ -32,7 +32,7 @@ def selection_sort(lst: list) -> list:
 
     return lst
 
-
+#variant of insertion sort
 def insertion_sort(lst: list) -> list:
 
     for i in range(1, len(lst)):
