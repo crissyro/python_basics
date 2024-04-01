@@ -1,6 +1,7 @@
 import time
 
-#decorator for check time complete
+
+# decorator for check time complete
 def time_test(sort):
     def wrapper(*args, **kwargs):
         start_time = time.time()
@@ -18,9 +19,8 @@ def time_test(sort):
 #  def insertion_sorting_test(list):
 #   return /../..insertion_Sort(list)
 
-#variant of selection sort
+# variant of selection sort
 def selection_sort(lst: list) -> list:
-
     for i in range(len(lst) - 1):
         m = i
 
@@ -32,9 +32,9 @@ def selection_sort(lst: list) -> list:
 
     return lst
 
-#variant of insertion sort
-def insertion_sort(lst: list) -> list:
 
+# variant of insertion sort
+def insertion_sort(lst: list) -> list:
     for i in range(1, len(lst)):
         item_to_insert = lst[i]
         j = i - 1
@@ -48,7 +48,7 @@ def insertion_sort(lst: list) -> list:
     return lst
 
 
-#variant of bubble sort
+# variant of bubble sort
 
 def bubble_sort(lst: list) -> list:
     for i in range(len(lst) - 1):
@@ -57,3 +57,36 @@ def bubble_sort(lst: list) -> list:
                 lst[i], lst[j] = lst[j], lst[i]
 
     return lst
+
+
+# variant of merge sort
+def merge_sort(lst: list) -> list:
+    if len(lst) > 1:
+        mid = len(lst) // 2
+        left = lst[:mid]
+        right = lst[mid:]
+
+        merge_sort(left)
+        merge_sort(right)
+
+        i = j = k = 0
+        while i < len(left) and j < len(right):
+            if left[i] <= right[j]:
+                lst[k] = left[i]
+                i += 1
+            else:
+                lst[k] = right[j]
+                j += 1
+            k += 1
+
+        while i < len(left):
+            lst[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            lst[k] = right[j]
+            j += 1
+            k += 1
+
+        return lst
