@@ -1,4 +1,5 @@
 import time
+import random
 
 
 # decorator for check time complete
@@ -90,3 +91,15 @@ def merge_sort(lst: list) -> list:
             k += 1
 
         return lst
+
+
+# variant of quick sort
+def quick_sort(lst: list) -> list:
+    if len(lst) > 1:
+        x = lst[random.randint(0, len(lst) - 1)]
+        low = [u for u in lst if u < x]
+        eq = [u for u in lst if u == x]
+        hi = [u for u in lst if u > x]
+        lst = quick_sort(low) + eq + quick_sort(hi)
+
+    return lst
