@@ -122,7 +122,7 @@ def heapify(lst: list, n, i):
         heapify(lst, n, largest)
 
 
-def heapSort(lst: list) -> list:
+def heap_sort(lst: list) -> list:
     n = len(lst)
 
     for i in range(n, -1, -1):
