@@ -1,5 +1,5 @@
-import time
-import random
+from time import time
+from random import randint
 
 
 # decorator for check time complete
@@ -96,7 +96,7 @@ def merge_sort(lst: list) -> list:
 # variant of quick sort
 def quick_sort(lst: list) -> list:
     if len(lst) > 1:
-        x = lst[random.randint(0, len(lst) - 1)]
+        x = lst[randint(0, len(lst) - 1)]
         low = [u for u in lst if u < x]
         eq = [u for u in lst if u == x]
         hi = [u for u in lst if u > x]
