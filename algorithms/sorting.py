@@ -108,13 +108,13 @@ def quick_sort(lst: list) -> list:
 # variant of heap sort
 def heapify(lst: list, n, i):
     largest = i
-    l = 2 * i + 1
-    r = 2 * i + 2
-    if l < n and lst[i] < lst[l]:
-        largest = l
+    left = 2 * i + 1
+    right = 2 * i + 2
+    if left < n and lst[i] < lst[left]:
+        largest = left
 
-    if r < n and lst[largest] < lst[r]:
-        largest = r
+    if right < n and lst[largest] < lst[right]:
+        largest = right
 
     if largest != i:
         lst[i], lst[largest] = lst[largest], lst[i]
