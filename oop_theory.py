@@ -1,7 +1,4 @@
 # инициализатор и финилизатор
-# from accessify import private, protected
-
-
 
 class Point:
 
@@ -11,6 +8,32 @@ class Point:
 
     def __del__(self):
         print(f'Deleting {self}')
+
+#имитация запрета обращения к атрибуту x
+    def __getattribute__(self, item):
+        if item == 'x':
+            raise AttributeError
+        else:
+            print('Active magic magic method __getattribute__')
+            return object.__getattribute__(self, item)
+
+#запрет на использования имени атрибута
+    def __setattr__(self, key, value):
+        if key == 'z':
+            raise AttributeError
+        else:
+            print('Active magic magic method __setattr__')
+            object.__setattr__(self, key, value)
+
+# автоматически вызывается при обращение к несуществующему атрибуту
+# без него вылезает ошибка
+    def __getattr__(self, item):
+        print(f"Active magic magic method __getattr__ + {item}")
+
+# удаляет локальное свойство с помощью ф-ции del
+    def __delattr__(self, item):
+        print(f"Active magic magic method __delattr__ + {item}")
+        object.__delattr__(self, item)
 
 
 #метод __new__ что то типо singleton
@@ -31,10 +54,8 @@ class Database:
         self.user = user
         self.port = port
 
-
     def close(self):
         print('Closing')
-
 
     def read(self):
         return "Data"
@@ -50,3 +71,15 @@ class Database:
 
 # from accessify import private, protected
 
+
+# реализация паттерна моносостояние
+
+class ThreadData:
+    __shared_attrs = {
+        'name': 'thred1',
+        'data': {},
+        'id': 1
+    }
+
+    def __init__(self):
+        self.__dict__ = self.__shared_attrs
