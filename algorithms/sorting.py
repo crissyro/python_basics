@@ -2,24 +2,6 @@ from time import time
 from random import randint
 
 
-# decorator for check time complete
-def time_test(sort):
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = sort(*args, **kwargs)
-        end_time = time.time()
-        print(f"lead time {sort.__name__}: {end_time - start_time} seconds")
-        return result
-
-    return wrapper
-
-
-# usage example
-
-#  @algorithms.sorting.time_Test
-#  def insertion_sorting_test(list):
-#   return /../..insertion_Sort(list)
-
 # variant of selection sort
 def selection_sort(lst: list) -> list:
     for i in range(len(lst) - 1):
