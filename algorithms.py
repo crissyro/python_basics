@@ -76,14 +76,14 @@ def merge_sort(lst: list) -> list:
 
 # variant of quick sort
 def quick_sort(lst: list) -> list:
-    if len(lst) > 1:
-        x = lst[randint(0, len(lst) - 1)]
-        low = [u for u in lst if u < x]
-        eq = [u for u in lst if u == x]
-        hi = [u for u in lst if u > x]
-        lst = quick_sort(low) + eq + quick_sort(hi)
+    if len(lst) < 2:
+        return lst
+    else:
+        pivot = lst[randint(0, len(lst) - 1)]
+        less = [i for i in lst if i < pivot]
+        great = [j for j in lst if j > pivot]
 
-    return lst
+        return quick_sort(less) + [pivot] + quick_sort(great)
 
 
 # variant of heap sort
