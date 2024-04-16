@@ -1,4 +1,3 @@
-from time import time
 from random import randint
 
 
@@ -115,3 +114,35 @@ def heap_sort(lst: list) -> list:
         heapify(lst, i, 0)
 
     return lst
+
+
+def binary_search(array: list, value: int) -> int:
+    l = 0
+    r = len(array) - 1
+
+    while l <= r:
+        mid = (l + r) // 2
+
+        if array[mid] == value:
+            return mid
+
+        elif value < array[mid]:
+            r = mid - 1
+
+        else:
+            l = mid + 1
+
+
+def recursive_binary_search(array: list, value: int, left=0, right=None) -> int:
+    if right is None:
+        right = len(array) + 1
+
+    mid = (left + right) // 2
+    if array[mid] == value:
+        return mid
+
+    elif value < array[mid]:
+        return recursive_binary_search(array, value, left, mid - 1)
+
+    else:
+        return recursive_binary_search(array, value, mid + 1, right)

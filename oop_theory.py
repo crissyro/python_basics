@@ -68,7 +68,7 @@ class Database:
 #   механизмы инкапсуляции
 #   atr -  public
 #   _atr - protected (для обращения внутри класса и в дочерних)
-#   __atr - private  (обращение только внутри класса
+#   __atr - private  (обращение только внутри класса)
 
 # from accessify import private, protected
 
