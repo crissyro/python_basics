@@ -4,9 +4,11 @@ from random import randint
 # variant of selection sort
 def selection_sort(lst: list) -> list:
     for i in range(len(lst) - 1):
+
         m = i
 
         for j in range(i + 1, len(lst)):
+
             if lst[j] < lst[m]:
                 m = j
 
@@ -18,10 +20,12 @@ def selection_sort(lst: list) -> list:
 # variant of insertion sort
 def insertion_sort(lst: list) -> list:
     for i in range(1, len(lst)):
+
         item_to_insert = lst[i]
         j = i - 1
 
         while j >= 0 and lst[j] > item_to_insert:
+
             lst[j + 1] = lst[j]
             j -= 1
 
@@ -34,7 +38,9 @@ def insertion_sort(lst: list) -> list:
 
 def bubble_sort(lst: list) -> list:
     for i in range(len(lst)):
+
         for j in range(i + 1, len(lst)):
+
             if lst[i] > lst[j]:
                 lst[i], lst[j] = lst[j], lst[i]
 
@@ -43,6 +49,7 @@ def bubble_sort(lst: list) -> list:
 
 # variant of merge sort
 def merge_sort(lst: list) -> list:
+
     if len(lst) > 1:
         mid = len(lst) // 2
         left = lst[:mid]
@@ -91,6 +98,7 @@ def heapify(lst: list, n, i):
     largest = i
     left = 2 * i + 1
     right = 2 * i + 2
+
     if left < n and lst[i] < lst[left]:
         largest = left
 
