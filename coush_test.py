@@ -5,29 +5,30 @@ import math
 
 
 class Girl:
+    girl_attr = {}
+
     __MAX_HEIGHT = 1.95
     __MAX_WEIGHT = 80
     __MAX_AGE = 50
 
     def __init__(self, age: int, height: float, weight: float):
-        self.age = age
-        self.height = height
-        self.weight = weight
+        self.girl_attr['age'] = age
+        self.girl_attr['height'] = height
+        self.girl_attr['weight'] = weight
 
     @classmethod
     def check_adecvatnost(self)->int:
         res_check_adecvatnost = 0
 
-        if self.height > self.__MAX_HEIGHT:
+        if self.girl_attr['height'] > self.__MAX_HEIGHT:
             print(f"Рост {self.height} - ты пьяный?")
             res_check_adecvatnost = -50
 
-        if self.weight > self.__MAX_WEIGHT:
+        if self.girl_attr['weight'] > self.__MAX_WEIGHT:
             print(f"Вес {self.weight}-ты пьяный?")
             res_check_adecvatnost = -50
 
-
-        if self.age > self.__MAX_AGE:
+        if self.girl_attr['age'] > self.__MAX_AGE:
             print(f"Возраст {self.age}-ты пьяный?")
             res_check_adecvatnost = -50
 
