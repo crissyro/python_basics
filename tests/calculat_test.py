@@ -1,7 +1,12 @@
+import doctest
 from unittest import TestCase, main
 from simple_calculator import calculat
 
 
+# добавляет doctest
+def load_test(loader, tests, ignore):
+    tests.addTests(doctest.DocTestSuite(calculat))
+    return tests
 class CalculatTest(TestCase):
     def test_plus(self):
         self.assertEqual(calculat('2+2'), 4)
