@@ -22,4 +22,4 @@ def calculat(exprssion):
 
 
 if __name__ == '__main__':
-    print(calculat('10/4'))
+    ...
