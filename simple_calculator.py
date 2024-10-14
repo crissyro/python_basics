@@ -1,5 +1,3 @@
-
-
 def calculat(exprssion):
     allowed = '+-*/'
     if not any(sign in exprssion for sign in allowed):
@@ -19,7 +17,6 @@ def calculat(exprssion):
                 }[sign](left, right)
             except (ValueError, TypeError):
                 raise ValueError('Expression must have two integer operands and one sign')
-
 
 if __name__ == '__main__':
     ...
